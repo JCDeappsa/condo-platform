@@ -37,3 +37,4 @@ cd frontend && npm install && npm run dev
 - junta@condominio.com / board123 (Board Member)
 - mantenimiento@condominio.com / maint123 (Maintenance)
 - residente@condominio.com / resident123 (Resident)
+# Auto-deploy enabled
