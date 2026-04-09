@@ -31,7 +31,17 @@ const app = express();
 // Security & parsing middleware
 app.use(helmet());
 app.use(cors({
-  origin: env.frontendUrl,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, etc)
+    if (!origin) return callback(null, true);
+    // Allow the configured frontend URL
+    if (origin === env.frontendUrl) return callback(null, true);
+    // Allow any Vercel preview deployments
+    if (origin.endsWith('.vercel.app')) return callback(null, true);
+    // Allow localhost in development
+    if (env.nodeEnv === 'development' && origin.includes('localhost')) return callback(null, true);
+    callback(new Error('CORS no permitido'));
+  },
   credentials: true,
 }));
 app.use(cookieParser());

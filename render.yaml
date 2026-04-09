@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: condo-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build && npm run migrate
+    startCommand: node dist/main.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: "15m"
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: "7d"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        value: admin@tucondominio.com
+      - key: FRONTEND_URL
+        sync: false
+      - key: DEFAULT_COMMUNITY_ID
+        value: "00000000-0000-0000-0000-000000000001"
