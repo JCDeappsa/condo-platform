@@ -3,7 +3,7 @@ services:
     name: condo-api
     runtime: node
     rootDir: backend
-    buildCommand: npm install && npm run build && npm run migrate
+    buildCommand: npm install --include=dev && npm run build && npm run migrate
     startCommand: node dist/main.js
     envVars:
       - key: NODE_ENV
