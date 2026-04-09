@@ -5,10 +5,12 @@
   "main": "dist/main.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
-    "build": "tsc",
+    "build": "tsc && cp -r src/migrations dist/migrations",
     "start": "node dist/main.js",
-    "migrate": "ts-node src/config/migrate.ts",
-    "seed": "ts-node src/config/seed.ts"
+    "migrate": "node dist/config/migrate.js",
+    "migrate:dev": "ts-node src/config/migrate.ts",
+    "seed": "node dist/config/seed.js",
+    "seed:dev": "ts-node src/config/seed.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
