@@ -2,10 +2,8 @@ import { Sequelize } from 'sequelize';
 import dns from 'dns';
 import { env } from './env';
 
-// Force IPv4 DNS resolution — Render can't reach Supabase over IPv6
-if (env.nodeEnv === 'production') {
-  dns.setDefaultResultOrder('ipv4first');
-}
+// Force IPv4 globally — Render free tier can't reach Supabase over IPv6
+dns.setDefaultResultOrder('ipv4first');
 
 export const sequelize = new Sequelize(env.databaseUrl, {
   dialect: 'postgres',
@@ -17,7 +15,8 @@ export const sequelize = new Sequelize(env.databaseUrl, {
     idle: 10000,
   },
   dialectOptions: {
-    ssl: env.nodeEnv === 'production' ? { rejectUnauthorized: false } : false,
+    ssl: { rejectUnauthorized: false },
+    connectTimeout: 30000,
   },
 });
 
