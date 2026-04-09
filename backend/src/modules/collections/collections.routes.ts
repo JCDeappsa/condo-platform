@@ -15,25 +15,25 @@ router.get('/status', asyncHandler(collectionsController.getStatuses));
 router.get('/unit/:unitId', asyncHandler(collectionsController.getUnitTimeline));
 
 // Refresh statuses
-router.post('/refresh', requireRole('administrator'), asyncHandler(collectionsController.refreshStatuses));
+router.post('/refresh', requireRole('administrator', 'board_member'), asyncHandler(collectionsController.refreshStatuses));
 
 // Run notification engine
-router.post('/engine/run', requireRole('administrator'), asyncHandler(collectionsController.runEngine));
+router.post('/engine/run', requireRole('administrator', 'board_member'), asyncHandler(collectionsController.runEngine));
 
 // Promises
-router.post('/promises', requireRole('administrator'), validate(createPromiseSchema), asyncHandler(collectionsController.createPromise));
-router.patch('/promises/:id', requireRole('administrator'), validate(updatePromiseSchema), asyncHandler(collectionsController.updatePromise));
+router.post('/promises', requireRole('administrator', 'board_member'), validate(createPromiseSchema), asyncHandler(collectionsController.createPromise));
+router.patch('/promises/:id', requireRole('administrator', 'board_member'), validate(updatePromiseSchema), asyncHandler(collectionsController.updatePromise));
 
 // Notes
-router.post('/notes', requireRole('administrator'), validate(addNoteSchema), asyncHandler(collectionsController.addNote));
+router.post('/notes', requireRole('administrator', 'board_member'), validate(addNoteSchema), asyncHandler(collectionsController.addNote));
 
 // Templates
 router.get('/templates', asyncHandler(collectionsController.getTemplates));
-router.patch('/templates/:id', requireRole('administrator'), validate(updateTemplateSchema), asyncHandler(collectionsController.updateTemplate));
+router.patch('/templates/:id', requireRole('administrator', 'board_member'), validate(updateTemplateSchema), asyncHandler(collectionsController.updateTemplate));
 
 // Rules
 router.get('/rules', asyncHandler(collectionsController.getRules));
-router.post('/rules', requireRole('administrator'), validate(createRuleSchema), asyncHandler(collectionsController.createRule));
-router.patch('/rules/:id', requireRole('administrator'), validate(updateRuleSchema), asyncHandler(collectionsController.updateRule));
+router.post('/rules', requireRole('administrator', 'board_member'), validate(createRuleSchema), asyncHandler(collectionsController.createRule));
+router.patch('/rules/:id', requireRole('administrator', 'board_member'), validate(updateRuleSchema), asyncHandler(collectionsController.updateRule));
 
 export default router;

@@ -13,8 +13,8 @@ router.get('/', asyncHandler(documentsController.findAll));
 router.get('/:id', asyncHandler(documentsController.findById));
 
 // Admin uploads/manages
-router.post('/', requireRole('administrator'), validate(createDocumentSchema), asyncHandler(documentsController.create));
-router.patch('/:id', requireRole('administrator'), validate(updateDocumentSchema), asyncHandler(documentsController.update));
-router.delete('/:id', requireRole('administrator'), asyncHandler(documentsController.delete));
+router.post('/', requireRole('administrator', 'board_member'), validate(createDocumentSchema), asyncHandler(documentsController.create));
+router.patch('/:id', requireRole('administrator', 'board_member'), validate(updateDocumentSchema), asyncHandler(documentsController.update));
+router.delete('/:id', requireRole('administrator', 'board_member'), asyncHandler(documentsController.delete));
 
 export default router;

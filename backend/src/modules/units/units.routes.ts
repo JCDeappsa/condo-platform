@@ -57,7 +57,7 @@ router.get(
  */
 router.post(
   '/',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(createUnitSchema),
   asyncHandler(unitsController.create)
 );
@@ -71,7 +71,7 @@ router.post(
  */
 router.patch(
   '/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(updateUnitSchema),
   asyncHandler(unitsController.update)
 );
@@ -85,7 +85,7 @@ router.patch(
  */
 router.delete(
   '/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(unitsController.delete)
 );
 

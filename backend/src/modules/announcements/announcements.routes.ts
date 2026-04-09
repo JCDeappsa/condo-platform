@@ -18,6 +18,6 @@ router.get('/:id', asyncHandler(announcementsController.findById));
 // Create/update/delete (admin/board)
 router.post('/', requireRole('administrator', 'board_member'), validate(createAnnouncementSchema), asyncHandler(announcementsController.create));
 router.patch('/:id', requireRole('administrator', 'board_member'), validate(updateAnnouncementSchema), asyncHandler(announcementsController.update));
-router.delete('/:id', requireRole('administrator'), asyncHandler(announcementsController.delete));
+router.delete('/:id', requireRole('administrator', 'board_member'), asyncHandler(announcementsController.delete));
 
 export default router;

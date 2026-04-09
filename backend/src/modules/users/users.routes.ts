@@ -29,7 +29,7 @@ router.use(authMiddleware);
  *       200:
  *         description: Lista de usuarios
  */
-router.get('/', requireRole('administrator'), asyncHandler(usersController.findAll));
+router.get('/', requireRole('administrator', 'board_member'), asyncHandler(usersController.findAll));
 
 /**
  * @openapi
@@ -38,7 +38,7 @@ router.get('/', requireRole('administrator'), asyncHandler(usersController.findA
  *     tags: [Usuarios]
  *     summary: Obtener usuarios por rol
  */
-router.get('/role/:role', requireRole('administrator'), asyncHandler(usersController.findByRole));
+router.get('/role/:role', requireRole('administrator', 'board_member'), asyncHandler(usersController.findByRole));
 
 /**
  * @openapi
@@ -47,7 +47,7 @@ router.get('/role/:role', requireRole('administrator'), asyncHandler(usersContro
  *     tags: [Usuarios]
  *     summary: Obtener usuario por ID
  */
-router.get('/:id', requireRole('administrator'), asyncHandler(usersController.findById));
+router.get('/:id', requireRole('administrator', 'board_member'), asyncHandler(usersController.findById));
 
 /**
  * @openapi
@@ -56,7 +56,7 @@ router.get('/:id', requireRole('administrator'), asyncHandler(usersController.fi
  *     tags: [Usuarios]
  *     summary: Crear usuario
  */
-router.post('/', requireRole('administrator'), validate(createUserSchema), asyncHandler(usersController.create));
+router.post('/', requireRole('administrator', 'board_member'), validate(createUserSchema), asyncHandler(usersController.create));
 
 /**
  * @openapi
@@ -65,7 +65,7 @@ router.post('/', requireRole('administrator'), validate(createUserSchema), async
  *     tags: [Usuarios]
  *     summary: Actualizar usuario
  */
-router.patch('/:id', requireRole('administrator'), validate(updateUserSchema), asyncHandler(usersController.update));
+router.patch('/:id', requireRole('administrator', 'board_member'), validate(updateUserSchema), asyncHandler(usersController.update));
 
 /**
  * @openapi
@@ -74,6 +74,6 @@ router.patch('/:id', requireRole('administrator'), validate(updateUserSchema), a
  *     tags: [Usuarios]
  *     summary: Eliminar usuario
  */
-router.delete('/:id', requireRole('administrator'), asyncHandler(usersController.delete));
+router.delete('/:id', requireRole('administrator', 'board_member'), asyncHandler(usersController.delete));
 
 export default router;

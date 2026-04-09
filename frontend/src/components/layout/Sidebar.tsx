@@ -32,19 +32,19 @@ interface NavItem {
 const navItems: NavItem[] = [
   { to: '/dashboard', label: es.nav.dashboard, icon: <LayoutDashboard size={20} />, roles: ['administrator', 'board_member', 'owner', 'resident'] },
   { to: '/units', label: es.nav.units, icon: <Home size={20} />, roles: ['administrator', 'board_member'] },
-  { to: '/users', label: es.nav.users, icon: <Users size={20} />, roles: ['administrator'] },
+  { to: '/users', label: es.nav.users, icon: <Users size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/billing', label: es.nav.billing, icon: <Receipt size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/payments', label: es.nav.payments, icon: <CreditCard size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/collections', label: es.nav.collections, icon: <AlertTriangle size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/maintenance', label: es.nav.maintenance, icon: <Wrench size={20} />, roles: ['administrator', 'board_member'] },
-  { to: '/meters', label: es.nav.meters, icon: <Gauge size={20} />, roles: ['administrator'] },
+  { to: '/meters', label: es.nav.meters, icon: <Gauge size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/projects', label: es.nav.projects, icon: <FolderKanban size={20} />, roles: ['administrator', 'board_member', 'owner', 'resident'] },
-  { to: '/vendors', label: es.nav.vendors, icon: <Truck size={20} />, roles: ['administrator'] },
+  { to: '/vendors', label: es.nav.vendors, icon: <Truck size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/expenses', label: es.nav.expenses, icon: <DollarSign size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/announcements', label: es.nav.announcements, icon: <Megaphone size={20} />, roles: ['administrator', 'board_member', 'owner', 'resident'] },
   { to: '/documents', label: es.nav.documents, icon: <FileText size={20} />, roles: ['administrator', 'board_member', 'owner', 'resident'] },
   { to: '/reports', label: es.nav.reports, icon: <BarChart3 size={20} />, roles: ['administrator', 'board_member'] },
-  { to: '/audit-logs', label: es.nav.auditLogs, icon: <ClipboardList size={20} />, roles: ['administrator'] },
+  { to: '/audit-logs', label: es.nav.auditLogs, icon: <ClipboardList size={20} />, roles: ['administrator', 'board_member'] },
   { to: '/settings', label: es.nav.settings, icon: <Settings size={20} />, roles: ['administrator', 'board_member', 'maintenance', 'owner', 'resident'] },
 ];
 

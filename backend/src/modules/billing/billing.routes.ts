@@ -18,7 +18,7 @@ router.use(authMiddleware);
  */
 router.post(
   '/generate',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(generateChargesSchema),
   asyncHandler(billingController.generateCharges)
 );
@@ -32,7 +32,7 @@ router.post(
  */
 router.post(
   '/special',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(createSpecialChargeSchema),
   asyncHandler(billingController.createSpecialCharge)
 );
@@ -72,7 +72,7 @@ router.get(
  */
 router.patch(
   '/charges/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(updateChargeSchema),
   asyncHandler(billingController.updateCharge)
 );
@@ -86,21 +86,21 @@ router.patch(
  */
 router.post(
   '/mark-overdue',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(billingController.markOverdue)
 );
 
 // Delete single charge
 router.delete(
   '/charges/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(billingController.deleteCharge)
 );
 
 // Delete multiple charges
 router.post(
   '/charges/bulk-delete',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(deleteChargesBulkSchema),
   asyncHandler(billingController.deleteChargesBulk)
 );

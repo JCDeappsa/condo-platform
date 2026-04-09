@@ -7,7 +7,7 @@ import { createVendorSchema, updateVendorSchema, createExpenseSchema, updateExpe
 
 const router = Router();
 router.use(authMiddleware);
-router.use(requireRole('administrator'));
+router.use(requireRole('administrator', 'board_member'));
 
 // ── Vendors ──
 router.post('/vendors', validate(createVendorSchema), asyncHandler(vendorsController.createVendor));

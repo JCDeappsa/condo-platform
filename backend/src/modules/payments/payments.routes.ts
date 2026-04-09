@@ -18,7 +18,7 @@ router.use(authMiddleware);
  */
 router.post(
   '/',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(recordPaymentSchema),
   asyncHandler(paymentsController.recordPayment)
 );
@@ -78,21 +78,21 @@ router.get(
 // Update payment
 router.patch(
   '/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(paymentsController.updatePayment)
 );
 
 // Delete single payment
 router.delete(
   '/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(paymentsController.deletePayment)
 );
 
 // Bulk delete payments
 router.post(
   '/bulk-delete',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(paymentsController.deletePaymentsBulk)
 );
 

@@ -99,7 +99,7 @@ router.post('/reset-password', validate(resetPasswordSchema), asyncHandler(authC
 router.post(
   '/admin-reset-password/:userId',
   authMiddleware,
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(adminResetPasswordSchema),
   asyncHandler(authController.adminResetPassword)
 );

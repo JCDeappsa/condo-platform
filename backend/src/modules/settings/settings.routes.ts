@@ -23,7 +23,7 @@ router.use(authMiddleware);
  */
 router.get(
   '/charge-concepts',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(settingsController.listChargeConcepts)
 );
 
@@ -36,7 +36,7 @@ router.get(
  */
 router.post(
   '/charge-concepts',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(createChargeConceptSchema),
   asyncHandler(settingsController.createChargeConcept)
 );
@@ -50,7 +50,7 @@ router.post(
  */
 router.patch(
   '/charge-concepts/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   validate(updateChargeConceptSchema),
   asyncHandler(settingsController.updateChargeConcept)
 );
@@ -64,7 +64,7 @@ router.patch(
  */
 router.delete(
   '/charge-concepts/:id',
-  requireRole('administrator'),
+  requireRole('administrator', 'board_member'),
   asyncHandler(settingsController.deleteChargeConcept)
 );
 

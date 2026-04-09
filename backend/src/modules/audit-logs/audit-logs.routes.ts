@@ -8,6 +8,6 @@ import { searchAuditLogsSchema } from './audit-logs.schema';
 const router = Router();
 router.use(authMiddleware);
 
-router.get('/', requireRole('administrator'), validate(searchAuditLogsSchema, 'query'), asyncHandler(auditLogsController.search));
+router.get('/', requireRole('administrator', 'board_member'), validate(searchAuditLogsSchema, 'query'), asyncHandler(auditLogsController.search));
 
 export default router;
