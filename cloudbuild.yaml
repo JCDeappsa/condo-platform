@@ -1,0 +1,35 @@
+steps:
+  # Step 1: Build and deploy backend to Cloud Run
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/condo-api', './backend']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/condo-api']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'condo-api'
+      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/condo-api'
+      - '--region=us-central1'
+      - '--allow-unauthenticated'
+      - '--port=3000'
+      - '--memory=512Mi'
+
+  # Step 2: Build frontend
+  - name: 'node:22'
+    dir: 'frontend'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        npm install
+        VITE_API_URL=https://condo-api-505474776258.us-central1.run.app/api npm run build
+
+  # Step 3: Deploy frontend to Firebase Hosting
+  - name: 'gcr.io/cloud-builders/firebase'
+    args: ['deploy', '--only', 'hosting', '--project', 'condo-platform-f2aa0']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
