@@ -1,0 +1,21 @@
+numero,tipo,cuota_mensual,area_m2,direccion
+C-01,casa,1500,120,Lote 1 Manzana A
+C-02,casa,1500,120,Lote 2 Manzana A
+C-03,casa,1500,150,Lote 3 Manzana A
+C-04,casa,1500,150,Lote 4 Manzana A
+C-05,casa,1500,130,Lote 5 Manzana A
+C-06,casa,1500,130,Lote 6 Manzana A
+C-07,casa,1500,140,Lote 7 Manzana B
+C-08,casa,1500,140,Lote 8 Manzana B
+C-09,casa,1500,160,Lote 9 Manzana B
+C-10,casa,1500,160,Lote 10 Manzana B
+C-11,casa,1800,200,Lote 11 Manzana B Esquina
+C-12,casa,1500,135,Lote 12 Manzana B
+C-13,casa,1500,135,Lote 13 Manzana C
+C-14,casa,1500,125,Lote 14 Manzana C
+C-15,casa,1500,125,Lote 15 Manzana C
+C-16,casa,1500,145,Lote 16 Manzana C
+C-17,casa,1500,145,Lote 17 Manzana C
+C-18,casa,1500,130,Lote 18 Manzana C
+C-19,casa,1500,130,Lote 19 Manzana D
+C-20,casa,1500,155,Lote 20 Manzana D

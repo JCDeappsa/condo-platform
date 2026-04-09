@@ -1,0 +1,64 @@
+// Central model registry — models and associations
+import '../modules/roles/roles.model';
+import '../modules/users/users.model';
+import '../modules/units/units.model';
+import '../modules/billing/monthly-charges.model';
+import '../modules/payments/payments.model';
+import '../modules/payments/account-movements.model';
+import '../modules/notifications/notification-templates.model';
+import '../modules/notifications/notification-rules.model';
+import '../modules/notifications/notifications.model';
+import '../modules/collections/account-collection-status.model';
+import '../modules/collections/payment-promises.model';
+import '../modules/collections/collection-notes.model';
+import '../modules/maintenance/maintenance-tickets.model';
+import '../modules/maintenance/maintenance-ticket-updates.model';
+import '../modules/maintenance/maintenance-ticket-photos.model';
+import '../modules/meters/meter-types.model';
+import '../modules/meters/meter-points.model';
+import '../modules/meters/meter-readings.model';
+import '../modules/projects/projects.model';
+import '../modules/projects/project-updates.model';
+import '../modules/vendors/vendors.model';
+import '../modules/vendors/expenses.model';
+import '../modules/announcements/announcements.model';
+import '../modules/documents/documents.model';
+import '../modules/audit-logs/audit-logs.model';
+import '../modules/residents/resident-profiles.model';
+import '../modules/residents/household-members.model';
+import '../modules/residents/vehicles.model';
+import '../modules/settings/charge-concepts.model';
+
+export { Role } from '../modules/roles/roles.model';
+export { User } from '../modules/users/users.model';
+export { Unit } from '../modules/units/units.model';
+export { MonthlyCharge } from '../modules/billing/monthly-charges.model';
+export { Payment } from '../modules/payments/payments.model';
+export { AccountMovement } from '../modules/payments/account-movements.model';
+export { NotificationTemplate } from '../modules/notifications/notification-templates.model';
+export { NotificationRule } from '../modules/notifications/notification-rules.model';
+export { Notification } from '../modules/notifications/notifications.model';
+export { AccountCollectionStatus } from '../modules/collections/account-collection-status.model';
+export { PaymentPromise } from '../modules/collections/payment-promises.model';
+export { CollectionNote } from '../modules/collections/collection-notes.model';
+export { MaintenanceTicket } from '../modules/maintenance/maintenance-tickets.model';
+export { TicketUpdate } from '../modules/maintenance/maintenance-ticket-updates.model';
+export { TicketPhoto } from '../modules/maintenance/maintenance-ticket-photos.model';
+export { MeterType } from '../modules/meters/meter-types.model';
+export { MeterPoint } from '../modules/meters/meter-points.model';
+export { MeterReading } from '../modules/meters/meter-readings.model';
+export { Project } from '../modules/projects/projects.model';
+export { ProjectUpdate } from '../modules/projects/project-updates.model';
+export { Vendor } from '../modules/vendors/vendors.model';
+export { Expense } from '../modules/vendors/expenses.model';
+export { Announcement } from '../modules/announcements/announcements.model';
+export { Document } from '../modules/documents/documents.model';
+export { AuditLog } from '../modules/audit-logs/audit-logs.model';
+export { ResidentProfile } from '../modules/residents/resident-profiles.model';
+export { HouseholdMember } from '../modules/residents/household-members.model';
+export { Vehicle } from '../modules/residents/vehicles.model';
+export { ChargeConcept } from '../modules/settings/charge-concepts.model';
+
+export function initModels(): void {
+  console.log('Modelos inicializados.');
+}
