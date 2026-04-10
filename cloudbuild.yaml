@@ -29,7 +29,13 @@ steps:
         npm install
         VITE_API_URL=https://condo-api-505474776258.us-central1.run.app/api npm run build
         cd ..
-        npx firebase-tools deploy --only hosting --project condo-platform-f2aa0
+        npx firebase-tools deploy --only hosting --project condo-platform-f2aa0 --token "$$FIREBASE_TOKEN"
+    secretEnv: ['FIREBASE_TOKEN']
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/firebase-token/versions/latest
+      env: 'FIREBASE_TOKEN'
 
 options:
   logging: CLOUD_LOGGING_ONLY
